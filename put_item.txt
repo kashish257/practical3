@@ -1,0 +1,5 @@
+import boto3 
+def lambda_handler(event, context):
+    dynamodb = boto3.client('dynamodb')
+    dynamodb.put_item(TableName='CreatingUser', Item={'Email':{'S':'devid2@gmail'},'Name':{'S':'devid'},'Skills':{'S':'java'}})
+        
