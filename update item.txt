@@ -1,0 +1,9 @@
+import boto3
+def lambda_handler(event, context):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('CreatingUser')
+    response = table.update_item(Key={'Email': 'joe1@gmail'},
+                                 UpdateExpression='SET Name1 = :val1',ExpressionAttributeValues={':val1': 'java'})
+    return response
+    
+   
